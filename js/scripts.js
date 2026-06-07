@@ -36,33 +36,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const linkConfig = STRIPE_LINKS[tier];
 
         if (linkConfig && linkConfig.url) {
-            // Stripe link is configured — redirect directly
-            window.open(linkConfig.url, '_blank');
-        } else if (tier === 'Enterprise') {
-            // Enterprise is custom — scroll to contact form
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            // Redirect directly to Stripe
+            window.location.href = linkConfig.url;
         } else {
-            // No link configured yet — show modal with option to book a call instead
-            selectedTier.tier = tier;
-            selectedTier.price = price;
-            selectedTier.period = period;
-
-            stripeModalTier.textContent = tier;
-            stripeModalBtn.href = '#contact';
-
-            const priceDisplay = period === 'one-time' ? '$' + price : '$' + price + '/month';
-            document.getElementById('stripeModalTitle').textContent = 'Coming Soon';
-            document.getElementById('stripeModalDesc').innerHTML =
-                'The <strong>' + tier + ' (' + priceDisplay + ')</strong> plan isn\'t available for online purchase just yet. ' +
-                'Book a free strategy call instead and we\'ll get you set up.';
-
-            stripeModalBtn.innerHTML = '<i class="fas fa-calendar"></i> Book a Free Call';
-            stripeModalBtn.onclick = function() {
-                closeStripeModal();
-                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-            };
-
-            openStripeModal();
+            // Fallback: scroll to contact for enterprise or missing links
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         }
     }
 
@@ -110,30 +88,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ===== Booking / Calendar Links =====
-    function handleBookingClick(e) {
+    // ===== Get Started / Pricing Links =====
+    function handleGetStartedClick(e) {
         e.preventDefault();
-        if (BOOKING_LINK) {
-            window.open(BOOKING_LINK, '_blank');
-        } else {
-            // No booking link configured — scroll to contact form
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-            // Show a hint on the form
-            const formHint = document.querySelector('.cta-footnote');
-            if (formHint) {
-                formHint.textContent = '💬 Book directly using the form below — we\'ll confirm your strategy call within 24 hours!';
-                formHint.style.color = 'rgba(255,255,255,0.7)';
-                setTimeout(() => {
-                    formHint.textContent = "We'll respond within 24 hours. No spam, ever.";
-                    formHint.style.color = '';
-                }, 5000);
-            }
-        }
+        document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
     }
 
-    const bookCallBtns = document.querySelectorAll('#bookCallBtn, #heroBookCallBtn');
-    bookCallBtns.forEach(btn => {
-        if (btn) btn.addEventListener('click', handleBookingClick);
+    const getStartedBtns = document.querySelectorAll('#bookCallBtn, #heroBookCallBtn, #heroGetStartedBtn');
+    getStartedBtns.forEach(btn => {
+        if (btn) btn.addEventListener('click', handleGetStartedClick);
     });
 
     // ===== Mobile Navigation Toggle =====
@@ -320,3 +283,34 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 });
+    // ===== Lead Magnet Form Handler =====
+    const leadMagnetForm = document.getElementById('leadMagnetForm');
+    const leadMagnetSuccess = document.getElementById('leadMagnetSuccess');
+
+    if (leadMagnetForm) {
+        leadMagnetForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(leadMagnetForm);
+            const lead = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                timestamp: new Date().toISOString(),
+                source: 'lead-magnet-checklist'
+            };
+
+            console.log('📥 New Lead Magnet Captured:', lead);
+
+            // Save to localStorage
+            try {
+                const stored = JSON.parse(localStorage.getItem('sheleads_leads') || '[]');
+                stored.push(lead);
+                localStorage.setItem('sheleads_leads', JSON.stringify(stored));
+                console.log('✅ Lead saved locally (' + stored.length + ' total leads)');
+            } catch (err) {
+                console.error('Failed to save lead', err);
+            }
+
+            leadMagnetForm.style.display = 'none';
+            leadMagnetSuccess.classList.add('active');
+        });
+    }
