@@ -49,8 +49,8 @@
                 <p class="hero-subheadline">She Leads Marketing is your all-in-one partner for strategy, content, and growth. From solo founders to established enterprises, we deliver the results that put you at the front of the pack.</p>
                 <div class="hero-ctas">
                     <a href="#pricing" class="btn btn-primary">View Our Plans</a>
-                    <a href="#contact" class="btn btn-secondary">Get Started Now</a>
-                    <a href="#" class="btn btn-outline-light" id="heroBookCallBtn"><i class="fas fa-calendar"></i> Get Started Now</a>
+                    <a href="#pricing" class="btn btn-secondary">Get Started Now</a>
+                    <a href="#pricing" class="btn btn-outline-light"><i class="fas fa-arrow-down"></i> Get Started Now</a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
@@ -494,6 +494,10 @@
                 <span class="section-subtitle" style="color: var(--secondary-light);">Free Resource</span>
                 <h2>Get the <span class="gold-text">Marketing Strategy Checklist</span></h2>
                 <p>Audit your own brand in 10 minutes. Our 7-step checklist helps you identify gaps in your brand foundation, SEO, social media, and paid ads.</p>
+                <div class="lead-magnet-images" style="display: flex; gap: 10px; margin-bottom: 30px;">
+                    <img src="img/lead-magnet-page-1.png" alt="Checklist Page 1" style="width: 120px; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                    <img src="img/lead-magnet-page-2.png" alt="Checklist Page 2" style="width: 120px; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                </div>
                 <ul class="pricing-features" style="color: rgba(255,255,255,0.9); margin-bottom: 0;">
                     <li><i class="fas fa-check-circle"></i> 42 Actionable audit items</li>
                     <li><i class="fas fa-check-circle"></i> Gap analysis for every channel</li>
@@ -510,18 +514,19 @@
                 <div class="form-success" id="leadMagnetSuccess">
                     <i class="fas fa-check-circle" style="color: var(--primary);"></i>
                     <h3 style="color: var(--neutral-dark);">Check your inbox!</h3>
-                    <p style="color: var(--neutral-mid);">The checklist is on its way. Ready to lead the conversation?</p>
+                    <p style="color: var(--neutral-mid); margin-bottom: 20px;">The checklist is on its way. You can also download it directly below:</p>
+                    <a href="img/checklist.md" download class="btn btn-primary btn-block">Download Checklist (Markdown)</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== CTA Section ===== -->
+    <!-- ===== Contact Section ===== -->
     <section class="cta-section" id="contact">
         <div class="container">
             <div class="cta-content">
-                <h2 class="cta-title">Ready to <span class="gold-text">lead the conversation?</span></h2>
-                <p class="cta-text">Select a plan to begin your brand transformation. No commitment, no pressure — just a conversation about your goals and how we can help you reach them.</p>
+                <h2 class="cta-title">Need <span class="gold-text">support or a custom plan?</span></h2>
+                <p class="cta-text">Questions about our tiers? Need a custom Enterprise quote? Send us a message and our support team will get back to you within 24 hours.</p>
                 <form class="cta-form" id="contactForm">
                     <div class="form-row">
                         <input type="text" name="name" placeholder="Your Name" required class="form-input">
@@ -530,25 +535,26 @@
                     <div class="form-row">
                         <input type="text" name="company" placeholder="Company Name" class="form-input">
                         <select name="tier" class="form-input" required>
-                            <option value="" disabled selected>Which tier interests you?</option>
-                            <option value="Starter">Starter ($500/mo)</option>
-                            <option value="Accelerate">Accelerate ($1,500/mo)</option>
-                            <option value="Elevate">Elevate ($3,500/mo)</option>
-                            <option value="Premium">Premium ($6,000/mo)</option>
-                            <option value="Enterprise">Enterprise (Custom)</option>
-                            <option value="Not sure">Not sure yet</option>
+                            <option value="" disabled selected>Nature of inquiry</option>
+                            <option value="Starter">Starter Support</option>
+                            <option value="Accelerate">Accelerate Support</option>
+                            <option value="Elevate">Elevate Support</option>
+                            <option value="Premium">Premium Support</option>
+                            <option value="Enterprise">Enterprise / Custom Quote</option>
+                            <option value="Billing">Billing / Payments</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
-                    <textarea name="message" placeholder="Tell us about your business and goals..." class="form-input form-textarea" rows="4"></textarea>
-                    <button type="submit" class="btn btn-primary btn-block btn-lg">Get Started Now</button>
+                    <textarea name="message" placeholder="How can we help you today?" class="form-input form-textarea" rows="4"></textarea>
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">Send Message</button>
                 </form>
                 <!-- Success Message -->
                 <div class="form-success" id="formSuccess">
                     <i class="fas fa-check-circle"></i>
-                    <h3>You're on the list!</h3>
-                    <p>Thanks for reaching out. We'll review your details and get back to you within 24 hours to complete your setup. Keep an eye on your inbox!</p>
+                    <h3>Message Sent!</h3>
+                    <p>Thanks for reaching out. We've received your inquiry and will get back to you within 24 hours. Keep an eye on your inbox!</p>
                 </div>
-                <p class="cta-footnote">We'll respond within 24 hours. No spam, ever.</p>
+                <p class="cta-footnote">Support response time: < 24 hours.</p>
             </div>
         </div>
     </section>
