@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
     }
 
-    const getStartedBtns = document.querySelectorAll('#bookCallBtn, #heroBookCallBtn, #heroGetStartedBtn');
+    const getStartedBtns = document.querySelectorAll('#heroGetStartedBtn');
     getStartedBtns.forEach(btn => {
         if (btn) btn.addEventListener('click', handleGetStartedClick);
     });
