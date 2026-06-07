@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
     //    replace the placeholder URLs below.
     const STRIPE_LINKS = {
         // Monthly Retainers
-        'Starter':     { url: '', name: 'Starter - $500/mo' },
-        'Accelerate':  { url: '', name: 'Accelerate - $1,500/mo' },
-        'Elevate':     { url: '', name: 'Elevate - $3,500/mo' },
-        'Premium':     { url: '', name: 'Premium - $6,000/mo' },
-        'Enterprise':  { url: '', name: 'Enterprise - Custom' },
+        'Starter':     { url: 'https://buy.stripe.com/5kQcN6g6064Y9KD8zg8EM00', name: 'Starter - $500/mo' },
+        'Accelerate':  { url: 'https://buy.stripe.com/bJe00k0721OIcWP3eW8EM01', name: 'Accelerate - $1,500/mo' },
+        'Elevate':     { url: 'https://buy.stripe.com/aFa6oIdXS2SMbSL02K8EM02', name: 'Elevate - $3,500/mo' },
+        'Premium':     { url: 'https://buy.stripe.com/aFaeVe2faeBuaOH6r88EM03', name: 'Premium - $6,000/mo' },
+        'Enterprise':  { url: 'https://buy.stripe.com/28E5kE4ni7924qj9Dk8EM04', name: 'Enterprise - Custom' },
         // Pay-As-You-Go
         'Blog Post':        { url: '', name: 'Blog Post - $200' },
         'Social Bundle':    { url: '', name: 'Social Bundle - $450' },
