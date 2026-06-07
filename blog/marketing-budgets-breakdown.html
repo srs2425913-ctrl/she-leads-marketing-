@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="From $500 to $6,000: What Each Marketing Budget Actually Gets You — Read more on She Leads Marketing blog.">
-    <title>From $500 to $6,000: What Each Marketing Budget Actually Gets You — She Leads Marketing Blog</title>
+    <meta name="description" content="One of the most frequent questions we get at She Leads Marketing is: "What should I be spending on marketing right now?"
+
+The answer depends entir...">
+    <title>From $500 to $6,000: What Each Marketing Budget Actually Gets You | She Leads Marketing Blog</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,69 +18,92 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/styles.css">
+    
     <style>
+        .blog-post-header {
+            padding: 140px 0 60px;
+            background: var(--neutral-light);
+            text-align: center;
+        }
+        .blog-post-meta {
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .blog-post-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--primary);
+            max-width: 900px;
+            margin: 0 auto 20px;
+            line-height: 1.2;
+        }
+        .blog-post-date {
+            color: var(--text-mid);
+            font-size: 1rem;
+        }
         .blog-post-content {
-            padding: 120px 0 80px;
+            padding: 80px 0;
             max-width: 800px;
             margin: 0 auto;
         }
-        .blog-header {
-            margin-bottom: 40px;
-            text-align: center;
-        }
-        .blog-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--deep-teal);
-            margin-bottom: 20px;
-        }
-        .blog-meta {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .blog-body {
-            font-size: 1.1rem;
+        .blog-post-body {
+            font-size: 1.15rem;
             line-height: 1.8;
             color: var(--text-dark);
         }
-        .blog-body h2 {
+        .blog-post-body h2 {
             font-family: 'Playfair Display', serif;
-            color: var(--deep-teal);
+            color: var(--primary);
             margin: 40px 0 20px;
+            font-size: 2rem;
         }
-        .blog-body p {
-            margin-bottom: 20px;
+        .blog-post-body h3 {
+            color: var(--primary);
+            margin: 30px 0 15px;
+            font-size: 1.5rem;
         }
-        .blog-body ul {
-            margin-bottom: 20px;
+        .blog-post-body p {
+            margin-bottom: 25px;
+        }
+        .blog-post-body ul, .blog-post-body ol {
+            margin-bottom: 25px;
             padding-left: 20px;
         }
-        .blog-body li {
+        .blog-post-body li {
             margin-bottom: 10px;
         }
-        .blog-footer {
+        .blog-cta-box {
+            background: var(--primary);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
             margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid #eee;
             text-align: center;
         }
-        .back-to-blog {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: var(--deep-teal);
-            text-decoration: none;
-            font-weight: 600;
+        .blog-cta-box h3 {
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
         }
-        .back-to-blog:hover {
-            color: var(--gold);
+        .blog-cta-box p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        @media (max-width: 768px) {
+            .blog-post-title {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <!-- ===== Navigation ===== -->
-    <nav class="navbar scrolled" id="navbar">
+    <nav class="navbar active" id="navbar">
         <div class="container nav-container">
             <a href="../index.html" class="nav-logo">
                 <span class="logo-she">She</span>
@@ -88,63 +113,62 @@
             <ul class="nav-links">
                 <li><a href="../index.html#services" class="nav-link">Services</a></li>
                 <li><a href="../index.html#pricing" class="nav-link">Pricing</a></li>
+                <li><a href="index.html" class="nav-link active">Blog</a></li>
                 <li><a href="../index.html#about" class="nav-link">About</a></li>
                 <li><a href="../index.html#contact" class="nav-link btn-nav-cta">Get Started</a></li>
             </ul>
         </div>
     </nav>
 
-    <article class="blog-post-content container">
-        <a href="../index.html#blog" class="back-to-blog"><i class="fas fa-arrow-left"></i> Back to Blog</a>
-        
-        <header class="blog-header">
-            <div class="blog-meta">Marketing Strategy • June 7, 2026</div>
-            <h1 class="blog-title">{{TITLE}}</h1>
-        </header>
+    <header class="blog-post-header">
+        <div class="container">
+            <span class="blog-post-meta">Marketing Strategy</span>
+            <h1 class="blog-post-title">From $500 to $6,000: What Each Marketing Budget Actually Gets You</h1>
+            <p class="blog-post-date">Published on June 7, 2026</p>
+        </div>
+    </header>
 
-        <div class="blog-body">
-            <p><br>One of the most frequent questions we get at <strong>She Leads Marketing</strong> is: "What should I be spending on marketing right now?"</p>
-<p>The answer depends entirely on your stage of business and your revenue goals. We believe in radical transparency, which is why we’ve built five distinct tiers that grow with you. Whether you’re a solopreneur with a $500 budget or an established company ready for a $6,000/mo full-service partnership, here is exactly what your investment gets you.</p>
-<h2>The $500/mo Budget: The Foundation (Starter Tier)</h2>
+    <article class="blog-post-content">
+        <div class="container">
+            <div class="blog-post-body">
+                <p>One of the most frequent questions we get at <strong>She Leads Marketing</strong> is: "What should I be spending on marketing right now?"</p><p>The answer depends entirely on your stage of business and your revenue goals. We believe in radical transparency, which is why we’ve built five distinct tiers that grow with you. Whether you’re a solopreneur with a $500 budget or an established company ready for a $6,000/mo full-service partnership, here is exactly what your investment gets you.</p><p><h2>The $500/mo Budget: The Foundation (Starter Tier)</h2>
 <strong>Best For:</strong> Solopreneurs and Side Hustles.
 <strong>The Goal:</strong> Professionalism and Consistency.
 At this level, you aren't yet running an "engine," but you need a "digital storefront." 
-<ul><li>  <strong>What you get:</strong> Management of 2 social platforms, 1 SEO-optimized blog post per month, and a monthly newsletter.</li><li>  <strong>The Value:</strong> You look like an expert when leads search for you. You stay top-of-mind with your existing audience without lifting a finger.</li></ul>
-<h2>The $1,500/mo Budget: The Growth Engine (Accelerate Tier)</h2>
+<ul><li>  <strong>What you get:</strong> Management of 2 social platforms, 1 SEO-optimized blog post per month, and a monthly newsletter.</li></ul>
+<ul><li>  <strong>The Value:</strong> You look like an expert when leads search for you. You stay top-of-mind with your existing audience without lifting a finger.</li></ul></p><p><h2>The $1,500/mo Budget: The Growth Engine (Accelerate Tier)</h2>
 <strong>Best For:</strong> Small Teams ready to scale.
 <strong>The Goal:</strong> Lead Generation and Reach.
 This is where we introduce <strong>Paid Advertising</strong>. 
-<ul><li>  <strong>What you get:</strong> All Foundation services + Professional management of 1 Ad platform (e.g., Meta Ads), more content volume, and lead magnet automation.</li><li>  <strong>The Value:</strong> You move from "hoping" for leads to "generating" them through a repeatable system.</li></ul>
-<h2>The $3,500/mo Budget: The Scale Specialist (Elevate Tier)</h2>
+<ul><li>  <strong>What you get:</strong> All Foundation services + Professional management of 1 Ad platform (e.g., Meta Ads), more content volume, and lead magnet automation.</li></ul>
+<ul><li>  <strong>The Value:</strong> You move from "hoping" for leads to "generating" them through a repeatable system.</li></ul></p><p><h2>The $3,500/mo Budget: The Scale Specialist (Elevate Tier)</h2>
 <strong>Best For:</strong> Scaling Businesses looking for market dominance.
 <strong>The Goal:</strong> Sophisticated Funnels and Technical SEO.
 At this level, we dive deep into the technical and strategic optimization of your entire digital ecosystem.
-<ul><li>  <strong>What you get:</strong> Full Technical SEO, weekly content cadences, complex email automation (abandoned cart, multi-step nurture), and 2-platform ad management.</li><li>  <strong>The Value:</strong> You move from a participant in your niche to a clear leader. Your marketing funnel becomes an automated high-ROI asset.</li></ul>
-<h2>The $6,000/mo Budget: The Full-Service Partner (Premium Tier)</h2>
+<ul><li>  <strong>What you get:</strong> Full Technical SEO, weekly content cadences, complex email automation (abandoned cart, multi-step nurture), and 2-platform ad management.</li></ul>
+<ul><li>  <strong>The Value:</strong> You move from a participant in your niche to a clear leader. Your marketing funnel becomes an automated high-ROI asset.</li></ul></p><p><h2>The $6,000/mo Budget: The Full-Service Partner (Premium Tier)</h2>
 <strong>Best For:</strong> Established Companies with ambitious revenue goals.
 <strong>The Goal:</strong> Comprehensive Authority and Maximum ROI.
 This is like hiring an entire marketing department for the cost of one mid-level manager.
-<ul><li>  <strong>What you get:</strong> Daily posting + short-form video (TikTok/Reels), 8 SEO blogs per month, aggressive PR and SEO outreach, multi-platform ad funnels, and weekly strategy sessions.</li><li>  <strong>The Value:</strong> Total market authority. You own the conversation across every relevant channel.</li></ul>
-<h2>The "Custom" Budget: The Strategic Alliance (Enterprise Tier)</h2>
+<ul><li>  <strong>What you get:</strong> Daily posting + short-form video (TikTok/Reels), 8 SEO blogs per month, aggressive PR and SEO outreach, multi-platform ad funnels, and weekly strategy sessions.</li></ul>
+<ul><li>  <strong>The Value:</strong> Total market authority. You own the conversation across every relevant channel.</li></ul></p><p><h2>The "Custom" Budget: The Strategic Alliance (Enterprise Tier)</h2>
 <strong>Best For:</strong> Large Organizations needing deep integration.
 <strong>The Goal:</strong> Total CRM and Operational Alignment.
-<ul><li>  <strong>What you get:</strong> Fully custom deliverables, CRM integration with your sales team, reputation management, and on-site workshops.</li><li>  <strong>The Value:</strong> A partner that acts as a strategic extension of your global organization.</li></ul>
-<h2>Ready to Find Your Tier?</h2>
-Marketing isn't about spending as much as possible; it's about spending the right amount for your current stage. 
-<p><strong>[Compare Our Full Service Tiers]</strong><br></p>
-        <div class="blog-cta" style="background: var(--warm-white); padding: 40px; border-radius: 16px; margin-top: 60px; text-align: center; border: 1px solid rgba(15, 76, 92, 0.1);">
-            <h3>Ready to scale your marketing?</h3>
-            <p>Our <strong>Accelerate Tier</strong> is designed for teams ready to grow. Get SEO, content, and ads managed by experts.</p>
-            <a href="../index.html#pricing" class="btn btn-primary">View Pricing & Get Started</a>
-        </div>
-    
-        </div>
+<ul><li>  <strong>What you get:</strong> Fully custom deliverables, CRM integration with your sales team, reputation management, and on-site workshops.</li></ul>
+<ul><li>  <strong>The Value:</strong> A partner that acts as a strategic extension of your global organization.</li></ul></p><p><h2>Ready to Find Your Tier?</h2>
+Marketing isn't about spending as much as possible; it's about spending the right amount for your current stage. </p><p><strong>[Compare Our Full Service Tiers]</strong></p>
+            </div>
 
-        <footer class="blog-footer">
-            <h3>Ready to grow your brand?</h3>
-            <p>Our unified marketing team handles everything from content to ads.</p>
-            <a href="../index.html#pricing" class="btn btn-primary">View Our Plans</a>
-        </footer>
+            <div class="blog-cta-box">
+                <h3>Ready to lead the conversation?</h3>
+                <p>Stop juggling freelancers and start growing with a unified marketing team. Our Starter tier starts at just $500/mo.</p>
+                <a href="../index.html#pricing" class="btn btn-secondary">View Pricing & Sign Up</a>
+            </div>
+            
+            <div style="margin-top: 40px; text-align: center;">
+                <a href="index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+            </div>
+        </div>
     </article>
 
     <!-- ===== Footer ===== -->
@@ -164,16 +188,13 @@ Marketing isn't about spending as much as possible; it's about spending the righ
                     <ul>
                         <li><a href="../index.html#services">Services</a></li>
                         <li><a href="../index.html#pricing">Pricing</a></li>
+                        <li><a href="index.html">Blog</a></li>
                         <li><a href="../index.html#about">About</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
                     <h4>Get In Touch</h4>
-                    <p><i class="fas fa-envelope"></i> hello@sheleadsmarketing.com</p>
-                    <div class="footer-social">
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
+                    <p><i class="fas fa-envelope"></i> sheleadsmarketing@agentmail.to</p>
                 </div>
             </div>
             <div class="footer-bottom">

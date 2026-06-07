@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Solo Founder? Here's Your $500/mo Marketing Strategy That Actually Works — Read more on She Leads Marketing blog.">
-    <title>Solo Founder? Here's Your $500/mo Marketing Strategy That Actually Works — She Leads Marketing Blog</title>
+    <meta name="description" content="Being a solo founder is a badge of honor, but it also means you’re the CEO, the product developer, the customer support team, and—all too often—the ex...">
+    <title>Solo Founder? Here's Your $500/mo Marketing Strategy That Actually Works | She Leads Marketing Blog</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,69 +16,92 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/styles.css">
+    
     <style>
+        .blog-post-header {
+            padding: 140px 0 60px;
+            background: var(--neutral-light);
+            text-align: center;
+        }
+        .blog-post-meta {
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .blog-post-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--primary);
+            max-width: 900px;
+            margin: 0 auto 20px;
+            line-height: 1.2;
+        }
+        .blog-post-date {
+            color: var(--text-mid);
+            font-size: 1rem;
+        }
         .blog-post-content {
-            padding: 120px 0 80px;
+            padding: 80px 0;
             max-width: 800px;
             margin: 0 auto;
         }
-        .blog-header {
-            margin-bottom: 40px;
-            text-align: center;
-        }
-        .blog-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--deep-teal);
-            margin-bottom: 20px;
-        }
-        .blog-meta {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .blog-body {
-            font-size: 1.1rem;
+        .blog-post-body {
+            font-size: 1.15rem;
             line-height: 1.8;
             color: var(--text-dark);
         }
-        .blog-body h2 {
+        .blog-post-body h2 {
             font-family: 'Playfair Display', serif;
-            color: var(--deep-teal);
+            color: var(--primary);
             margin: 40px 0 20px;
+            font-size: 2rem;
         }
-        .blog-body p {
-            margin-bottom: 20px;
+        .blog-post-body h3 {
+            color: var(--primary);
+            margin: 30px 0 15px;
+            font-size: 1.5rem;
         }
-        .blog-body ul {
-            margin-bottom: 20px;
+        .blog-post-body p {
+            margin-bottom: 25px;
+        }
+        .blog-post-body ul, .blog-post-body ol {
+            margin-bottom: 25px;
             padding-left: 20px;
         }
-        .blog-body li {
+        .blog-post-body li {
             margin-bottom: 10px;
         }
-        .blog-footer {
+        .blog-cta-box {
+            background: var(--primary);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
             margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid #eee;
             text-align: center;
         }
-        .back-to-blog {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: var(--deep-teal);
-            text-decoration: none;
-            font-weight: 600;
+        .blog-cta-box h3 {
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
         }
-        .back-to-blog:hover {
-            color: var(--gold);
+        .blog-cta-box p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        @media (max-width: 768px) {
+            .blog-post-title {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <!-- ===== Navigation ===== -->
-    <nav class="navbar scrolled" id="navbar">
+    <nav class="navbar active" id="navbar">
         <div class="container nav-container">
             <a href="../index.html" class="nav-logo">
                 <span class="logo-she">She</span>
@@ -88,56 +111,49 @@
             <ul class="nav-links">
                 <li><a href="../index.html#services" class="nav-link">Services</a></li>
                 <li><a href="../index.html#pricing" class="nav-link">Pricing</a></li>
+                <li><a href="index.html" class="nav-link active">Blog</a></li>
                 <li><a href="../index.html#about" class="nav-link">About</a></li>
                 <li><a href="../index.html#contact" class="nav-link btn-nav-cta">Get Started</a></li>
             </ul>
         </div>
     </nav>
 
-    <article class="blog-post-content container">
-        <a href="../index.html#blog" class="back-to-blog"><i class="fas fa-arrow-left"></i> Back to Blog</a>
-        
-        <header class="blog-header">
-            <div class="blog-meta">Marketing Strategy • June 7, 2026</div>
-            <h1 class="blog-title">{{TITLE}}</h1>
-        </header>
+    <header class="blog-post-header">
+        <div class="container">
+            <span class="blog-post-meta">Marketing Strategy</span>
+            <h1 class="blog-post-title">Solo Founder? Here's Your $500/mo Marketing Strategy That Actually Works</h1>
+            <p class="blog-post-date">Published on June 7, 2026</p>
+        </div>
+    </header>
 
-        <div class="blog-body">
-            <p><br>Being a solo founder is a badge of honor, but it also means you’re the CEO, the product developer, the customer support team, and—all too often—the exhausted marketing manager. </p>
-<p>When you’re in the early stages, you don't need a $10,000-a-month ad budget or a 20-person agency. You need a <strong>professional foundation</strong>. You need a strategy that builds credibility while you sleep, so that when a potential client searches for you, they see a leader, not a "side hustler."</p>
-<p>At <strong>She Leads Marketing</strong>, we built our <strong>Starter Tier</strong> specifically for the focused solopreneur. Our founder, a single mother and entrepreneur, remembers the days of trying to build a dream on a limited budget. She started this agency because she believes in <strong>women empowering women</strong>, and she knows that a professional foundation is what separates a "hobby" from a "business." </p>
-<p>Here is how to make a $500/mo marketing budget work harder for you than a $5,000 budget worked for your competitors.</p>
-<h2>The Goal: Consistency Over Complexity</h2>
-The biggest trap founders fall into is trying to be everywhere at once. They start a TikTok, a LinkedIn newsletter, a YouTube channel, and a blog all in the same week. By week three, they’ve burned out, and their profiles look like a digital ghost town.
-<p>In the Starter stage, <strong>consistency is your superpower</strong>. It’s better to do two things perfectly than five things poorly.</p>
-<h2>1. Own Your Social Presence (2 Platforms Max)</h2>
+    <article class="blog-post-content">
+        <div class="container">
+            <div class="blog-post-body">
+                <p>Being a solo founder is a badge of honor, but it also means you’re the CEO, the product developer, the customer support team, and—all too often—the exhausted marketing manager. </p><p>When you’re in the early stages, you don't need a $10,000-a-month ad budget or a 20-person agency. You need a <strong>professional foundation</strong>. You need a strategy that builds credibility while you sleep, so that when a potential client searches for you, they see a leader, not a "side hustler."</p><p>At <strong>She Leads Marketing<em>*, we built our **Starter Tier** specifically for the focused solopreneur. Our founder, a single mother and entrepreneur, remembers the days of trying to build a dream on a limited budget. She started this agency because she believes in *</em>women empowering women</strong>, and she knows that a professional foundation is what separates a "hobby" from a "business." </p><p>Here is how to make a $500/mo marketing budget work harder for you than a $5,000 budget worked for your competitors.</p><p><h2>The Goal: Consistency Over Complexity</h2>
+The biggest trap founders fall into is trying to be everywhere at once. They start a TikTok, a LinkedIn newsletter, a YouTube channel, and a blog all in the same week. By week three, they’ve burned out, and their profiles look like a digital ghost town.</p><p>In the Starter stage, <strong>consistency is your superpower</strong>. It’s better to do two things perfectly than five things poorly.</p><p><h2>1. Own Your Social Presence (2 Platforms Max)</h2>
 You don't need to post five times a day. You need to post twice a week on the two platforms where your ideal clients actually hang out.
-<ul><li>  <strong>The Strategy:</strong> High-value, authority-building content. Share your "Why," your unique process, and the results you’ve delivered.</li><li>  <strong>The Value:</strong> When a lead checks your LinkedIn profile, they see recent, professional activity. This builds instant trust.</li></ul>
-<h2>2. The Power of One Monthly Blog Post</h2>
+<ul><li>  <strong>The Strategy:</strong> High-value, authority-building content. Share your "Why," your unique process, and the results you’ve delivered.</li></ul>
+<ul><li>  <strong>The Value:</strong> When a lead checks your LinkedIn profile, they see recent, professional activity. This builds instant trust.</li></ul></p><p><h2>2. The Power of One Monthly Blog Post</h2>
 One SEO-optimized blog post per month is enough to start building your organic authority. 
-<ul><li>  <strong>The Strategy:</strong> Answer the #1 question your prospects ask you. If you’re a consultant, write about the common mistake you see everyone making.</li><li>  <strong>The Value:</strong> This post lives on your website forever. It helps you rank on Google and gives you high-quality content to share in your newsletter.</li></ul>
-<h2>3. The Nurture Engine: A Monthly Newsletter</h2>
+<ul><li>  <strong>The Strategy:</strong> Answer the #1 question your prospects ask you. If you’re a consultant, write about the common mistake you see everyone making.</li></ul>
+<ul><li>  <strong>The Value:</strong> This post lives on your website forever. It helps you rank on Google and gives you high-quality content to share in your newsletter.</li></ul></p><p><h2>3. The Nurture Engine: A Monthly Newsletter</h2>
 Social media is rented land; your email list is property you own. A monthly newsletter keeps you top-of-mind with your hottest leads.
-<ul><li>  <strong>The Strategy:</strong> Curate your best content from the month and share one "insider" tip that isn't available on social media.</li><li>  <strong>The Value:</strong> It turns "one-time visitors" into "long-term brand fans."</li></ul>
-<h2>Why $500/mo?</h2>
-Most freelancers will charge you $500 just for a few graphics. But when you partner with an agency like She Leads, that same investment buys you an <strong>integrated system</strong>. We handle the management of 2 platforms, one SEO-optimized blog, and your monthly newsletter.
-<p>We provide the foundation so you can stay in your zone of genius—building the product and closing the deals.</p>
-<h2>Ready to Level Up?</h2>
-You don't have to juggle your own marketing to grow a successful business. Let us handle the baseline while you lead the vision.
-<p><strong>[Check Out the Starter Package Details]</strong><br></p>
-        <div class="blog-cta" style="background: var(--warm-white); padding: 40px; border-radius: 16px; margin-top: 60px; text-align: center; border: 1px solid rgba(15, 76, 92, 0.1);">
-            <h3>Ready to scale your marketing?</h3>
-            <p>Our <strong>Accelerate Tier</strong> is designed for teams ready to grow. Get SEO, content, and ads managed by experts.</p>
-            <a href="../index.html#pricing" class="btn btn-primary">View Pricing & Get Started</a>
-        </div>
-    
-        </div>
+<ul><li>  <strong>The Strategy:</strong> Curate your best content from the month and share one "insider" tip that isn't available on social media.</li></ul>
+<ul><li>  <strong>The Value:</strong> It turns "one-time visitors" into "long-term brand fans."</li></ul></p><p><h2>Why $500/mo?</h2>
+Most freelancers will charge you $500 just for a few graphics. But when you partner with an agency like She Leads, that same investment buys you an <strong>integrated system</strong>. We handle the management of 2 platforms, one SEO-optimized blog, and your monthly newsletter.</p><p>We provide the foundation so you can stay in your zone of genius—building the product and closing the deals.</p><p><h2>Ready to Level Up?</h2>
+You don't have to juggle your own marketing to grow a successful business. Let us handle the baseline while you lead the vision.</p><p><strong>[Check Out the Starter Package Details]</strong></p>
+            </div>
 
-        <footer class="blog-footer">
-            <h3>Ready to grow your brand?</h3>
-            <p>Our unified marketing team handles everything from content to ads.</p>
-            <a href="../index.html#pricing" class="btn btn-primary">View Our Plans</a>
-        </footer>
+            <div class="blog-cta-box">
+                <h3>Ready to lead the conversation?</h3>
+                <p>Stop juggling freelancers and start growing with a unified marketing team. Our Starter tier starts at just $500/mo.</p>
+                <a href="../index.html#pricing" class="btn btn-secondary">View Pricing & Sign Up</a>
+            </div>
+            
+            <div style="margin-top: 40px; text-align: center;">
+                <a href="index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+            </div>
+        </div>
     </article>
 
     <!-- ===== Footer ===== -->
@@ -157,16 +173,13 @@ You don't have to juggle your own marketing to grow a successful business. Let u
                     <ul>
                         <li><a href="../index.html#services">Services</a></li>
                         <li><a href="../index.html#pricing">Pricing</a></li>
+                        <li><a href="index.html">Blog</a></li>
                         <li><a href="../index.html#about">About</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
                     <h4>Get In Touch</h4>
-                    <p><i class="fas fa-envelope"></i> hello@sheleadsmarketing.com</p>
-                    <div class="footer-social">
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
+                    <p><i class="fas fa-envelope"></i> sheleadsmarketing@agentmail.to</p>
                 </div>
             </div>
             <div class="footer-bottom">
