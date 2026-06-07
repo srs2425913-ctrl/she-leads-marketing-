@@ -535,6 +535,46 @@
         </div>
     </div>
 
+    <!-- ===== Booking Modal ===== -->
+    <div class="stripe-modal-overlay" id="bookingModal">
+        <div class="stripe-modal booking-modal">
+            <button class="stripe-modal-close" id="bookingModalClose">&times;</button>
+            <div class="stripe-modal-icon"><i class="fas fa-calendar-alt"></i></div>
+            <h3 id="bookingModalTitle">Book a Strategy Call</h3>
+            <p id="bookingModalDesc">Select a time slot that works for you. All times are in your local timezone.</p>
+            
+            <div class="booking-scheduler" id="bookingScheduler">
+                <div class="booking-days" id="bookingDays">
+                    <!-- Days will be injected here -->
+                </div>
+                <div class="booking-slots" id="bookingSlots">
+                    <p class="select-day-prompt">Please select a day first</p>
+                    <!-- Slots will be injected here -->
+                </div>
+            </div>
+
+            <div class="booking-form-container" id="bookingFormContainer" style="display: none;">
+                <h4 id="selectedSlotInfo"></h4>
+                <form id="bookingForm" class="cta-form">
+                    <input type="text" name="name" placeholder="Your Name" required class="form-input">
+                    <input type="email" name="email" placeholder="Email Address" required class="form-input">
+                    <input type="text" name="company" placeholder="Company Name" class="form-input">
+                    <textarea name="message" placeholder="Optional message..." class="form-input form-textarea" rows="2"></textarea>
+                    <input type="hidden" name="slot" id="selectedSlotInput">
+                    <button type="submit" class="btn btn-primary btn-block">Confirm Booking</button>
+                    <button type="button" class="btn btn-secondary btn-block" id="backToSlots">Back to slots</button>
+                </form>
+            </div>
+
+            <div class="form-success" id="bookingSuccess">
+                <i class="fas fa-check-circle"></i>
+                <h3>Booking Confirmed!</h3>
+                <p>Your strategy call has been scheduled. Check your email for the calendar invitation and meeting link.</p>
+                <button class="btn btn-primary" id="closeBookingSuccess">Close</button>
+            </div>
+        </div>
+    </div>
+
     <script src="js/scripts.js"></script>
 </body>
 </html>

@@ -110,25 +110,165 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // ===== Booking / Calendar Logic (Custom System) =====
+    const bookingModal = document.getElementById('bookingModal');
+    const bookingModalClose = document.getElementById('bookingModalClose');
+    const bookingSuccess = document.getElementById('bookingSuccess');
+    const bookingScheduler = document.getElementById('bookingScheduler');
+    const bookingFormContainer = document.getElementById('bookingFormContainer');
+    const bookingForm = document.getElementById('bookingForm');
+    const bookingDays = document.getElementById('bookingDays');
+    const bookingSlots = document.getElementById('bookingSlots');
+    const selectedSlotInfo = document.getElementById('selectedSlotInfo');
+    const selectedSlotInput = document.getElementById('selectedSlotInput');
+    const backToSlots = document.getElementById('backToSlots');
+    const closeBookingSuccess = document.getElementById('closeBookingSuccess');
+
+    function openBookingModal() {
+        if (!bookingModal) return;
+        bookingModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        resetBookingModal();
+        generateBookingDays();
+    }
+
+    function closeBookingModal() {
+        if (!bookingModal) return;
+        bookingModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function resetBookingModal() {
+        bookingScheduler.style.display = 'block';
+        bookingFormContainer.style.display = 'none';
+        bookingSuccess.classList.remove('active');
+        bookingSlots.innerHTML = '<p class="select-day-prompt">Please select a day first</p>';
+    }
+
+    function generateBookingDays() {
+        if (!bookingDays) return;
+        bookingDays.innerHTML = '';
+        const now = new Date();
+        let daysGenerated = 0;
+        let current = new Date(now);
+
+        // Generate next 7 available days (Mon-Fri)
+        while (daysGenerated < 7) {
+            current.setDate(current.getDate() + 1);
+            const dayOfWeek = current.getDay();
+            if (dayOfWeek === 0 || dayOfWeek === 6) continue; // Skip weekends
+
+            const dayEl = document.createElement('div');
+            dayEl.className = 'booking-day';
+            const dateStr = current.toISOString().split('T')[0];
+            dayEl.dataset.date = dateStr;
+            
+            const dayName = current.toLocaleDateString('en-US', { weekday: 'short' });
+            const dayDate = current.getDate();
+            
+            dayEl.innerHTML = `
+                <span class="day-name">${dayName}</span>
+                <span class="day-date">${dayDate}</span>
+            `;
+            
+            dayEl.addEventListener('click', () => {
+                document.querySelectorAll('.booking-day').forEach(d => d.classList.remove('active'));
+                dayEl.classList.add('active');
+                generateTimeSlots(dateStr);
+            });
+            
+            bookingDays.appendChild(dayEl);
+            daysGenerated++;
+        }
+    }
+
+    function generateTimeSlots(dateStr) {
+        if (!bookingSlots) return;
+        bookingSlots.innerHTML = '';
+        const times = [
+            '09:00 AM', '09:30 AM', '10:00 AM', '10:30 AM', 
+            '11:00 AM', '11:30 AM', '01:00 PM', '01:30 PM', 
+            '02:00 PM', '02:30 PM', '03:00 PM', '03:30 PM', 
+            '04:00 PM', '04:30 PM'
+        ];
+
+        times.forEach(time => {
+            const slotEl = document.createElement('div');
+            slotEl.className = 'booking-slot';
+            slotEl.textContent = time;
+            slotEl.addEventListener('click', () => {
+                selectSlot(dateStr, time);
+            });
+            bookingSlots.appendChild(slotEl);
+        });
+    }
+
+    function selectSlot(date, time) {
+        const formattedDate = new Date(date).toLocaleDateString('en-US', { 
+            weekday: 'long', 
+            month: 'long', 
+            day: 'numeric' 
+        });
+        
+        selectedSlotInfo.textContent = `${formattedDate} at ${time}`;
+        selectedSlotInput.value = `${date} ${time}`;
+        
+        bookingScheduler.style.display = 'none';
+        bookingFormContainer.style.display = 'block';
+    }
+
+    if (backToSlots) {
+        backToSlots.addEventListener('click', () => {
+            bookingScheduler.style.display = 'block';
+            bookingFormContainer.style.display = 'none';
+        });
+    }
+
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(bookingForm);
+            const booking = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                company: formData.get('company'),
+                message: formData.get('message'),
+                slot: formData.get('slot'),
+                timestamp: new Date().toISOString(),
+                type: 'strategy-call'
+            };
+
+            console.log('📅 New Booking Captured:', booking);
+
+            // Save to localStorage
+            try {
+                const stored = JSON.parse(localStorage.getItem('sheleads_bookings') || '[]');
+                stored.push(booking);
+                localStorage.setItem('sheleads_bookings', JSON.stringify(stored));
+                console.log('✅ Booking saved locally (' + stored.length + ' total bookings)');
+            } catch (err) {
+                console.error('Failed to save booking', err);
+            }
+
+            bookingFormContainer.style.display = 'none';
+            bookingSuccess.classList.add('active');
+        });
+    }
+
+    if (bookingModalClose) bookingModalClose.addEventListener('click', closeBookingModal);
+    if (closeBookingSuccess) closeBookingSuccess.addEventListener('click', closeBookingModal);
+    
+    // Close on overlay click
+    if (bookingModal) {
+        bookingModal.addEventListener('click', (e) => {
+            if (e.target === bookingModal) closeBookingModal();
+        });
+    }
+
     // ===== Booking / Calendar Links =====
     function handleBookingClick(e) {
         e.preventDefault();
-        if (BOOKING_LINK) {
-            window.open(BOOKING_LINK, '_blank');
-        } else {
-            // No booking link configured — scroll to contact form
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-            // Show a hint on the form
-            const formHint = document.querySelector('.cta-footnote');
-            if (formHint) {
-                formHint.textContent = '💬 Book directly using the form below — we\'ll confirm your strategy call within 24 hours!';
-                formHint.style.color = 'rgba(255,255,255,0.7)';
-                setTimeout(() => {
-                    formHint.textContent = "We'll respond within 24 hours. No spam, ever.";
-                    formHint.style.color = '';
-                }, 5000);
-            }
-        }
+        openBookingModal();
     }
 
     const bookCallBtns = document.querySelectorAll('#bookCallBtn, #heroBookCallBtn');

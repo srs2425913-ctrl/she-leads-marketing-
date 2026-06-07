@@ -1618,3 +1618,108 @@ ul { list-style: none; }
         gap: 24px;
     }
 }
+/* ===== Booking Modal Extensions ===== */
+.booking-modal {
+    max-width: 600px;
+}
+
+.booking-scheduler {
+    margin-bottom: 24px;
+}
+
+.booking-days {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-light) transparent;
+}
+
+.booking-day {
+    flex: 0 0 80px;
+    padding: 12px 8px;
+    border: 1px solid var(--neutral-light);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.booking-day:hover {
+    border-color: var(--primary-light);
+    background: rgba(15, 76, 92, 0.02);
+}
+
+.booking-day.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--white);
+}
+
+.booking-day .day-name {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.booking-day .day-date {
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: block;
+}
+
+.booking-slots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    max-height: 240px;
+    overflow-y: auto;
+    padding: 4px;
+}
+
+.booking-slot {
+    padding: 10px;
+    border: 1px solid var(--neutral-light);
+    border-radius: var(--border-radius);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--white);
+}
+
+.booking-slot:hover {
+    border-color: var(--primary-light);
+    color: var(--primary-light);
+    background: rgba(74, 140, 148, 0.05);
+}
+
+.select-day-prompt {
+    grid-column: 1 / -1;
+    color: var(--neutral-mid);
+    font-style: italic;
+    padding: 20px;
+    text-align: center;
+}
+
+.booking-form-container h4 {
+    margin-bottom: 16px;
+    color: var(--neutral-dark);
+    font-family: var(--font-headline);
+}
+
+#bookingSuccess {
+    padding: 20px 0;
+}
+
+#bookingSuccess h3 {
+    margin-bottom: 12px;
+}
+
+#bookingSuccess p {
+    margin-bottom: 24px;
+}
