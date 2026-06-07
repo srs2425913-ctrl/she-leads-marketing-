@@ -1,0 +1,322 @@
+/* ===== She Leads Marketing - Website Scripts ===== */
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    // ===== STRIPE PAYMENT LINKS CONFIGURATION =====
+    // ⚡ When the owner provides actual Stripe Payment Link URLs,
+    //    replace the placeholder URLs below.
+    const STRIPE_LINKS = {
+        // Monthly Retainers
+        'Starter':     { url: '', name: 'Starter - $500/mo' },
+        'Accelerate':  { url: '', name: 'Accelerate - $1,500/mo' },
+        'Elevate':     { url: '', name: 'Elevate - $3,500/mo' },
+        'Premium':     { url: '', name: 'Premium - $6,000/mo' },
+        'Enterprise':  { url: '', name: 'Enterprise - Custom' },
+        // Pay-As-You-Go
+        'Blog Post':        { url: '', name: 'Blog Post - $200' },
+        'Social Bundle':    { url: '', name: 'Social Bundle - $450' },
+        'Email Campaign':   { url: '', name: 'Email Campaign - $125' },
+        'Ad Creative Set':  { url: '', name: 'Ad Creative Set - $350' }
+    };
+
+    // ===== CALENDLY / BOOKING CONFIGURATION =====
+    // ⚡ Replace with actual Calendly or booking link when available
+    const BOOKING_LINK = '';
+
+    // ===== Stripe Modal Elements =====
+    const stripeModalOverlay = document.getElementById('stripeModal');
+    const stripeModalClose = document.getElementById('stripeModalClose');
+    const stripeModalCancel = document.getElementById('stripeModalCancel');
+    const stripeModalTier = document.getElementById('stripeModalTier');
+    const stripeModalBtn = document.getElementById('stripeModalBtn');
+    const selectedTier = { tier: '', price: '', period: '' };
+
+    // ===== Stripe Button Handler =====
+    function handleStripeClick(tier, price, period) {
+        const linkConfig = STRIPE_LINKS[tier];
+
+        if (linkConfig && linkConfig.url) {
+            // Stripe link is configured — redirect directly
+            window.open(linkConfig.url, '_blank');
+        } else if (tier === 'Enterprise') {
+            // Enterprise is custom — scroll to contact form
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        } else {
+            // No link configured yet — show modal with option to book a call instead
+            selectedTier.tier = tier;
+            selectedTier.price = price;
+            selectedTier.period = period;
+
+            stripeModalTier.textContent = tier;
+            stripeModalBtn.href = '#contact';
+
+            const priceDisplay = period === 'one-time' ? '$' + price : '$' + price + '/month';
+            document.getElementById('stripeModalTitle').textContent = 'Coming Soon';
+            document.getElementById('stripeModalDesc').innerHTML =
+                'The <strong>' + tier + ' (' + priceDisplay + ')</strong> plan isn\'t available for online purchase just yet. ' +
+                'Book a free strategy call instead and we\'ll get you set up.';
+
+            stripeModalBtn.innerHTML = '<i class="fas fa-calendar"></i> Book a Free Call';
+            stripeModalBtn.onclick = function() {
+                closeStripeModal();
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            };
+
+            openStripeModal();
+        }
+    }
+
+    function openStripeModal() {
+        stripeModalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeStripeModal() {
+        stripeModalOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Stripe modal event listeners
+    if (stripeModalClose) stripeModalClose.addEventListener('click', closeStripeModal);
+    if (stripeModalCancel) stripeModalCancel.addEventListener('click', closeStripeModal);
+    if (stripeModalOverlay) {
+        stripeModalOverlay.addEventListener('click', function(e) {
+            if (e.target === stripeModalOverlay) closeStripeModal();
+        });
+    }
+
+    // Esc key closes modal
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && stripeModalOverlay && stripeModalOverlay.classList.contains('active')) {
+            closeStripeModal();
+        }
+    });
+
+    // ===== Wire up all Stripe buttons =====
+    document.querySelectorAll('.stripe-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const tier = this.dataset.tier || this.querySelector('h4')?.textContent || '';
+            const price = this.dataset.price || '0';
+            const period = this.dataset.period || 'one-time';
+
+            // If it's a PAYG card (div), handle differently
+            if (this.tagName === 'DIV') {
+                handleStripeClick(tier, price, period);
+            } else {
+                // It's an anchor/button
+                handleStripeClick(tier, price, period);
+            }
+        });
+    });
+
+    // ===== Booking / Calendar Links =====
+    function handleBookingClick(e) {
+        e.preventDefault();
+        if (BOOKING_LINK) {
+            window.open(BOOKING_LINK, '_blank');
+        } else {
+            // No booking link configured — scroll to contact form
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            // Show a hint on the form
+            const formHint = document.querySelector('.cta-footnote');
+            if (formHint) {
+                formHint.textContent = '💬 Book directly using the form below — we\'ll confirm your strategy call within 24 hours!';
+                formHint.style.color = 'rgba(255,255,255,0.7)';
+                setTimeout(() => {
+                    formHint.textContent = "We'll respond within 24 hours. No spam, ever.";
+                    formHint.style.color = '';
+                }, 5000);
+            }
+        }
+    }
+
+    const bookCallBtns = document.querySelectorAll('#bookCallBtn, #heroBookCallBtn');
+    bookCallBtns.forEach(btn => {
+        if (btn) btn.addEventListener('click', handleBookingClick);
+    });
+
+    // ===== Mobile Navigation Toggle =====
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', function() {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+
+    // ===== Navbar Scroll Effect =====
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function() {
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // ===== Pricing Toggle (Monthly / Pay-As-You-Go) =====
+    const toggleSwitch = document.getElementById('pricingToggle');
+    const toggleMonthly = document.getElementById('toggleMonthly');
+    const togglePayg = document.getElementById('togglePayg');
+    const monthlySection = document.getElementById('monthlyPricing');
+    const paygSection = document.getElementById('paygPricing');
+    const extraCards = document.querySelector('.pricing-extra-cards');
+
+    function showMonthly() {
+        toggleSwitch.classList.remove('payg');
+        toggleMonthly.classList.add('active');
+        togglePayg.classList.remove('active');
+        if (monthlySection) monthlySection.style.display = 'grid';
+        if (extraCards) extraCards.style.display = 'grid';
+        if (paygSection) paygSection.style.display = 'none';
+    }
+
+    function showPayg() {
+        toggleSwitch.classList.add('payg');
+        togglePayg.classList.add('active');
+        toggleMonthly.classList.remove('active');
+        if (monthlySection) monthlySection.style.display = 'none';
+        if (extraCards) extraCards.style.display = 'none';
+        if (paygSection) paygSection.style.display = 'block';
+    }
+
+    if (toggleSwitch) {
+        toggleSwitch.addEventListener('click', function() {
+            toggleSwitch.classList.contains('payg') ? showMonthly() : showPayg();
+        });
+    }
+    if (toggleMonthly) toggleMonthly.addEventListener('click', showMonthly);
+    if (togglePayg) togglePayg.addEventListener('click', showPayg);
+
+    // ===== Animated Counter =====
+    function animateCounters() {
+        document.querySelectorAll('.stat-number').forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-count'));
+            const updateCount = () => {
+                const current = parseInt(counter.innerText) || 0;
+                if (current < target) {
+                    counter.innerText = Math.min(current + Math.ceil(target / 30), target);
+                    requestAnimationFrame(updateCount);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    }
+
+    // ===== Intersection Observer for animations =====
+    const observerOptions = { threshold: 0.2, rootMargin: '0px 0px -50px 0px' };
+
+    const heroStats = document.querySelector('.hero-stats');
+    if (heroStats) {
+        new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    this.unobserve?.(entry.target);
+                }
+            });
+        }, observerOptions).observe(heroStats);
+    }
+
+    // Fade-in for sections
+    document.querySelectorAll('.value-prop, .services, .pricing, .process, .testimonials').forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'all 0.8s ease-out';
+        new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    this.unobserve?.(entry.target);
+                }
+            });
+        }, { threshold: 0.1 }).observe(section);
+    });
+
+    // Card stagger animation
+    document.querySelectorAll('.values-grid, .services-grid, .pricing-grid, .pricing-extra-cards, .testimonial-grid, .payg-grid').forEach(group => {
+        const cards = group.querySelectorAll('.value-card, .service-card, .pricing-card, .testimonial-card, .payg-card');
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = `all 0.6s ease-out ${index * 0.1}s`;
+        });
+        new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.value-card, .service-card, .pricing-card, .testimonial-card, .payg-card').forEach(card => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    });
+                    this.unobserve?.(entry.target);
+                }
+            });
+        }, { threshold: 0.1 }).observe(group);
+    });
+
+    // ===== Enhanced Contact Form Handler =====
+    const contactForm = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Extract lead data
+            const formData = new FormData(contactForm);
+            const lead = {
+                name: formData.get('name') || '',
+                email: formData.get('email') || '',
+                company: formData.get('company') || '',
+                tier: formData.get('tier') || '',
+                message: formData.get('message') || '',
+                timestamp: new Date().toISOString(),
+                source: 'website-contact-form'
+            };
+
+            // Log lead to console (in production, this would send to CRM/email)
+            console.log('📋 New Lead Captured:', lead);
+
+            // Simulate storing locally (in production, POST to backend)
+            try {
+                const stored = JSON.parse(localStorage.getItem('sheleads_leads') || '[]');
+                stored.push(lead);
+                localStorage.setItem('sheleads_leads', JSON.stringify(stored));
+                console.log('✅ Lead saved locally (' + stored.length + ' total leads)');
+            } catch (e) {
+                console.log('📋 Lead captured (localStorage unavailable):', lead);
+            }
+
+            // Hide form, show success
+            contactForm.style.display = 'none';
+            formSuccess.classList.add('active');
+
+            // Scroll to success message
+            formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    }
+
+    // ===== Smooth scroll =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: target.getBoundingClientRect().top + window.pageYOffset - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+});
