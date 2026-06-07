@@ -7,16 +7,9 @@ const outputDir = path.join(__dirname, 'blog');
 
 const template = fs.readFileSync(templatePath, 'utf8');
 
-const posts = [
-    { file: 'cost-of-piecing-together-freelancers.md', slug: 'cost-of-piecing-together-freelancers' },
-    { file: 'how-to-choose-marketing-agency.md', slug: 'how-to-choose-marketing-agency' },
-    { file: 'marketing-budgets-breakdown.md', slug: 'marketing-budgets-breakdown' },
-    { file: 'seo-vs-ads-vs-content.md', slug: 'seo-vs-ads-vs-content' },
-    { file: 'solo-founder-marketing-strategy.md', slug: 'solo-founder-marketing-strategy' }
-];
+const postFiles = fs.readdirSync(postsDir).filter(file => file.endsWith('.md'));
 
 function simpleMarkdownToHtml(md) {
-    // Very simple conversion for these specific posts
     return md
         .replace(/^# (.*$)/gm, '<h1>$1</h1>')
         .replace(/^## (.*$)/gm, '<h2>$1</h2>')
@@ -31,8 +24,9 @@ function simpleMarkdownToHtml(md) {
         .join('\n');
 }
 
-posts.forEach(post => {
-    const md = fs.readFileSync(path.join(postsDir, post.file), 'utf8');
+postFiles.forEach(file => {
+    const slug = file.replace('.md', '');
+    const md = fs.readFileSync(path.join(postsDir, file), 'utf8');
     const lines = md.split('\n');
     const title = lines[0].replace('# ', '');
     const bodyMd = lines.slice(1).join('\n');
@@ -51,6 +45,6 @@ posts.forEach(post => {
         .replace('{{METADESC}}', title + ' — Read more on She Leads Marketing blog.')
         .replace('{{BODY}}', bodyHtml + ctaHtml);
     
-    fs.writeFileSync(path.join(outputDir, post.slug + '.html'), html);
-    console.log(`Generated ${post.slug}.html`);
+    fs.writeFileSync(path.join(outputDir, slug + '.html'), html);
+    console.log(`Generated ${slug}.html`);
 });
