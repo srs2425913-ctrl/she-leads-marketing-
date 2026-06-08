@@ -3,31 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="She Leads Marketing Blog - Insights on SEO, Social Media, and Growth Strategy.">
-    <title>Blog | She Leads Marketing</title>
+    <meta name="description" content="Expert advice on scaling your brand, optimizing your budget, and leading your industry.">
+    <title>Our Blog | She Leads Marketing Blog</title>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 (free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/styles.css">
+    
     <style>
-        .blog-index-header { padding: 140px 0 80px; background: var(--primary); color: white; text-align: center; }
-        .blog-index-header h1 { font-family: 'Playfair Display', serif; font-size: 4rem; margin-bottom: 20px; }
-        .blog-grid { padding: 80px 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
-        .blog-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s ease; display: flex; flex-direction: column; }
-        .blog-card:hover { transform: translateY(-5px); }
-        .blog-card-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
-        .blog-card-meta { color: var(--gold); font-weight: 600; font-size: 0.85rem; margin-bottom: 12px; text-transform: uppercase; }
-        .blog-card-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); line-height: 1.3; }
-        .blog-card-excerpt { color: var(--text-mid); margin-bottom: 20px; font-size: 1rem; line-height: 1.6; }
-        .blog-card-link { color: var(--primary); font-weight: 700; text-decoration: none; margin-top: auto; display: inline-flex; align-items: center; gap: 8px; }
+        .blog-post-header {
+            padding: 140px 0 60px;
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+        }
+        .blog-post-meta {
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .blog-post-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--white);
+            max-width: 900px;
+            margin: 0 auto 20px;
+            line-height: 1.2;
+        }
+        .blog-post-date {
+            color: var(--secondary-light);
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        .blog-post-content {
+            padding: 80px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .blog-post-body {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--neutral-dark);
+        }
+        .blog-post-body h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            margin: 40px 0 20px;
+            font-size: 2rem;
+            border-bottom: 2px solid var(--secondary-light);
+            padding-bottom: 10px;
+        }
+        .blog-post-body h3 {
+            color: var(--primary);
+            margin: 30px 0 15px;
+            font-size: 1.5rem;
+        }
+        .blog-post-body p {
+            margin-bottom: 25px;
+        }
+        .blog-post-body ul, .blog-post-body ol {
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+        .blog-post-body li {
+            margin-bottom: 10px;
+        }
+        .blog-post-body strong {
+            color: var(--primary-dark);
+        }
+        .blog-cta-box {
+            background: var(--primary);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-top: 60px;
+            text-align: center;
+            border-left: 5px solid var(--accent);
+        }
+        .blog-cta-box h3 {
+            color: var(--accent);
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .blog-cta-box p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+        .btn-accent:hover {
+            background-color: var(--accent-hover);
+            color: var(--primary-dark);
+        }
+        @media (max-width: 768px) {
+            .blog-post-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Navigation consistency */
+        .navbar.active {
+            background: var(--primary);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body>
+    <!-- ===== Navigation ===== -->
     <nav class="navbar active" id="navbar">
         <div class="container nav-container">
             <a href="../index.html" class="nav-logo">
-                <span class="logo-she">She</span><span class="logo-leads"> Leads</span><span class="logo-marketing"> Marketing</span>
+                <span class="logo-she">She</span>
+                <span class="logo-leads"> Leads</span>
+                <span class="logo-marketing"> Marketing</span>
             </a>
             <ul class="nav-links">
                 <li><a href="../index.html#services" class="nav-link">Services</a></li>
@@ -38,165 +140,188 @@
             </ul>
         </div>
     </nav>
-    <header class="blog-index-header">
+
+    <header class="blog-post-header">
         <div class="container">
-            <h1>Our Blog</h1>
-            <p>Expert insights to help your business lead the conversation.</p>
+            <span class="blog-post-meta">Insights & Strategy</span>
+            <h1 class="blog-post-title">Our Blog</h1>
+            <p class="blog-post-date">Published on Updated June 2026</p>
         </div>
     </header>
-    <main class="container">
-        <div class="blog-grid">
-            
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <div class="blog-card-meta">Marketing Strategy</div>
-                    <h3 class="blog-card-title">10 Signs Your Business Needs Professional Marketing Help</h3>
-                    <p class="blog-card-excerpt">Meta Description: Is your business struggling to grow? Here are 10 clear signs that it’s time to stop DIY-ing and bring in a professional marketing ag...</p>
-                    <a href="10-signs-you-need-marketing-help.html" class="blog-card-link">Read Article <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <div class="blog-card-meta">Marketing Strategy</div>
-                    <h3 class="blog-card-title">The Hidden Cost of Piecing Together Freelancers</h3>
-                    <p class="blog-card-excerpt">On paper, hiring three specialized freelancers seems like a smart way to save money. You hire a "Facebook Ads expert" for $500, a "Content Writer" for...</p>
-                    <a href="cost-of-piecing-together-freelancers.html" class="blog-card-link">Read Article <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <div class="blog-card-meta">Marketing Strategy</div>
-                    <h3 class="blog-card-title">DIY vs. Hiring a Marketing Agency: When to Make the Leap</h3>
-                    <p class="blog-card-excerpt">Meta Description: Stuck between doing it yourself and hiring a professional marketing agency? Learn the signs that it's time to delegate your marketin...</p>
-                    <a href="diy-vs-hiring-agency.html" class="blog-card-link">Read Article <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <div class="blog-card-meta">Marketing Strategy</div>
-                    <h3 class="blog-card-title">From Founder to CEO: The Shift to Strategic Marketing Leadership</h3>
-                    <p class="blog-card-excerpt">There is a distinct moment in the life of every successful business when the "Founder" must become the "CEO." 
 
-The Founder is the person who started...</p>
-                    <a href="founder-to-ceo-shift.html" class="blog-card-link">Read Article <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <div class="blog-card-meta">Marketing Strategy</div>
-                    <h3 class="blog-card-title">How to Choose the Right Marketing Agency: A 5-Step Framework</h3>
-                    <p class="blog-card-excerpt">Choosing a marketing agency isn’t just about hiring a service provider; it’s about choosing a strategic partner who will hold the keys to your brand’s...</p>
-                    <a href="how-to-choose-marketing-agency.html" class="blog-card-link">Read Article <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <div class="blog-card-meta">Marketing Strategy</div>
-                    <h3 class="blog-card-title">How Much Does a Marketing Agency Cost in 2026? A Full Breakdown</h3>
-                    <p class="blog-card-excerpt">Meta Description: Discover the real cost of hiring a marketing agency in 2026. We break down retainer models, hourly rates, and why unified strategy i...</p>
-                    <a href="marketing-agency-cost-2026.html" class="blog-card-link">Read Article <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <div class="blog-card-meta">Marketing Strategy</div>
-                    <h3 class="blog-card-title">From $500 to $6,000: What Each Marketing Budget Actually Gets You</h3>
-                    <p class="blog-card-excerpt">One of the most frequent questions we get at She Leads Marketing is: "What should I be spending on marketing right now?"
-
-The answer depends entir...</p>
-                    <a href="marketing-budgets-breakdown.html" class="blog-card-link">Read Article <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <div class="blog-card-meta">Marketing Strategy</div>
-                    <h3 class="blog-card-title">Beyond Social Media: Building a Multi-Channel Marketing Ecosystem</h3>
-                    <p class="blog-card-excerpt">In today’s digital age, many founders fall into the "Social Media Trap." They spend hours crafting the perfect Instagram Reel or LinkedIn post, only t...</p>
-                    <a href="multi-channel-ecosystem.html" class="blog-card-link">Read Article <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <div class="blog-card-meta">Marketing Strategy</div>
-                    <h3 class="blog-card-title">The ROI of Inclusive Marketing: Why Diversity is a Growth Strategy</h3>
-                    <p class="blog-card-excerpt">For a long time, "inclusive marketing" was treated by some as a checkbox—a moral obligation or a PR move. But in the modern business landscape, inclus...</p>
-                    <a href="roi-of-inclusive-marketing.html" class="blog-card-link">Read Article <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <div class="blog-card-meta">Marketing Strategy</div>
-                    <h3 class="blog-card-title">Scaling Your Brand Without Burning Out: The Power of Strategic Delegation</h3>
-                    <p class="blog-card-excerpt">As a founder, you are used to wearing every hat. You are the CEO, the lead salesperson, the customer support rep, and, more often than not, the market...</p>
-                    <a href="scaling-without-burnout.html" class="blog-card-link">Read Article <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <div class="blog-card-meta">Marketing Strategy</div>
-                    <h3 class="blog-card-title">Why Your SEO Strategy Needs a Brand Voice: Moving Beyond Keywords</h3>
-                    <p class="blog-card-excerpt">In the early days of digital marketing, SEO was a numbers game. If you stuffed enough keywords into a page and built enough backlinks, you could game...</p>
-                    <a href="seo-and-brand-voice.html" class="blog-card-link">Read Article <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <div class="blog-card-meta">Marketing Strategy</div>
-                    <h3 class="blog-card-title">SEO vs Paid Ads vs Content: Where Should Growing Businesses Invest?</h3>
-                    <p class="blog-card-excerpt">If you have an extra $2,000 in your marketing budget this month, where should it go?
-- Should you dump it into Meta Ads for immediate traffic?
-- S...</p>
-                    <a href="seo-vs-ads-vs-content.html" class="blog-card-link">Read Article <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <div class="blog-card-meta">Marketing Strategy</div>
-                    <h3 class="blog-card-title">Social Media Management Pricing: What $500–$6,000/mo Gets You</h3>
-                    <p class="blog-card-excerpt">Meta Description: How much should you pay for social media management? We compare the value and deliverables across our five service tiers to help you...</p>
-                    <a href="social-media-management-pricing.html" class="blog-card-link">Read Article <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <div class="blog-card-meta">Marketing Strategy</div>
-                    <h3 class="blog-card-title">Solo Founder? Here's Your $500/mo Marketing Strategy That Actually Works</h3>
-                    <p class="blog-card-excerpt">Being a solo founder is a badge of honor, but it also means you’re the CEO, the product developer, the customer support team, and—all too often—the ex...</p>
-                    <a href="solo-founder-marketing-strategy.html" class="blog-card-link">Read Article <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-            
-            <article class="blog-card">
-                <div class="blog-card-content">
-                    <div class="blog-card-meta">Marketing Strategy</div>
-                    <h3 class="blog-card-title">What to Expect from a $500/mo Marketing Retainer</h3>
-                    <p class="blog-card-excerpt">Meta Description: Thinking about the She Leads Marketing Starter Tier? Here is exactly what you get for $500/mo and how it builds a professional found...</p>
-                    <a href="what-to-expect-500-retainer.html" class="blog-card-link">Read Article <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-            
+    <article class="blog-post-content">
+        <div class="container">
+            <div class="blog-post-body">
+                
+        <div style="text-align: center; margin-bottom: 20px;">
+            <p class="section-desc">Expert insights on scaling your brand, optimizing your budget, and leading your industry.</p>
         </div>
-    </main>
+        
+    <div class="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; padding: 40px 0;">
+        
+            <article class="blog-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: transform 0.3s ease;">
+                <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <div style="color: var(--accent); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 12px;">Growth Strategy</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); line-height: 1.3;">10 Signs Your Business Needs Professional Marketing Help</h3>
+                    <p style="color: var(--neutral-mid); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1;">Meta Description: Is your business struggling to grow? Here are 10 clear signs that it’s time to stop DIY-ing and bring in a professional marketing ag...</p>
+                    <a href="10-signs-you-need-marketing-help.html" style="color: var(--primary); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        
+            <article class="blog-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: transform 0.3s ease;">
+                <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <div style="color: var(--accent); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 12px;">Growth Strategy</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); line-height: 1.3;">The Hidden Cost of Piecing Together Freelancers</h3>
+                    <p style="color: var(--neutral-mid); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1;">On paper, hiring three specialized freelancers seems like a smart way to save money. You hire a "Facebook Ads expert" for $500, a "Content Writer" for...</p>
+                    <a href="cost-of-piecing-together-freelancers.html" style="color: var(--primary); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        
+            <article class="blog-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: transform 0.3s ease;">
+                <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <div style="color: var(--accent); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 12px;">Agency Partnership</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); line-height: 1.3;">DIY vs. Hiring a Marketing Agency: When to Make the Leap</h3>
+                    <p style="color: var(--neutral-mid); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1;">Meta Description: Stuck between doing it yourself and hiring a professional marketing agency? Learn the signs that it's time to delegate your marketin...</p>
+                    <a href="diy-vs-hiring-agency.html" style="color: var(--primary); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        
+            <article class="blog-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: transform 0.3s ease;">
+                <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <div style="color: var(--accent); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 12px;">Leadership</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); line-height: 1.3;">From Founder to CEO: The Shift to Strategic Marketing Leadership</h3>
+                    <p style="color: var(--neutral-mid); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1;">There is a distinct moment in the life of every successful business when the "Founder" must become the "CEO." ...</p>
+                    <a href="founder-to-ceo-shift.html" style="color: var(--primary); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        
+            <article class="blog-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: transform 0.3s ease;">
+                <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <div style="color: var(--accent); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 12px;">Agency Partnership</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); line-height: 1.3;">How to Choose the Right Marketing Agency: A 5-Step Framework</h3>
+                    <p style="color: var(--neutral-mid); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1;">Choosing a marketing agency isn’t just about hiring a service provider; it’s about choosing a strategic partner who will hold the keys to your brand’s...</p>
+                    <a href="how-to-choose-marketing-agency.html" style="color: var(--primary); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        
+            <article class="blog-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: transform 0.3s ease;">
+                <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <div style="color: var(--accent); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 12px;">Budgets</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); line-height: 1.3;">How Much Does a Marketing Agency Cost in 2026? A Full Breakdown</h3>
+                    <p style="color: var(--neutral-mid); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1;">Meta Description: Discover the real cost of hiring a marketing agency in 2026. We break down retainer models, hourly rates, and why unified strategy i...</p>
+                    <a href="marketing-agency-cost-2026.html" style="color: var(--primary); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        
+            <article class="blog-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: transform 0.3s ease;">
+                <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <div style="color: var(--accent); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 12px;">Budgets</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); line-height: 1.3;">From $500 to $6,000: What Each Marketing Budget Actually Gets You</h3>
+                    <p style="color: var(--neutral-mid); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1;">One of the most frequent questions we get at **She Leads Marketing** is: "What should I be spending on marketing right now?"...</p>
+                    <a href="marketing-budgets-breakdown.html" style="color: var(--primary); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        
+            <article class="blog-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: transform 0.3s ease;">
+                <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <div style="color: var(--accent); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 12px;">Growth Strategy</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); line-height: 1.3;">Beyond Social Media: Building a Multi-Channel Marketing Ecosystem</h3>
+                    <p style="color: var(--neutral-mid); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1;">In today’s digital age, many founders fall into the "Social Media Trap." They spend hours crafting the perfect Instagram Reel or LinkedIn post, only t...</p>
+                    <a href="multi-channel-ecosystem.html" style="color: var(--primary); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        
+            <article class="blog-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: transform 0.3s ease;">
+                <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <div style="color: var(--accent); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 12px;">Inclusive Marketing</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); line-height: 1.3;">The ROI of Inclusive Marketing: Why Diversity is a Growth Strategy</h3>
+                    <p style="color: var(--neutral-mid); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1;">For a long time, "inclusive marketing" was treated by some as a checkbox—a moral obligation or a PR move. But in the modern business landscape, inclus...</p>
+                    <a href="roi-of-inclusive-marketing.html" style="color: var(--primary); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        
+            <article class="blog-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: transform 0.3s ease;">
+                <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <div style="color: var(--accent); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 12px;">Leadership</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); line-height: 1.3;">Scaling Your Brand Without Burning Out: The Power of Strategic Delegation</h3>
+                    <p style="color: var(--neutral-mid); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1;">As a founder, you are used to wearing every hat. You are the CEO, the lead salesperson, the customer support rep, and, more often than not, the market...</p>
+                    <a href="scaling-without-burnout.html" style="color: var(--primary); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        
+            <article class="blog-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: transform 0.3s ease;">
+                <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <div style="color: var(--accent); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 12px;">SEO & Content</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); line-height: 1.3;">Why Your SEO Strategy Needs a Brand Voice: Moving Beyond Keywords</h3>
+                    <p style="color: var(--neutral-mid); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1;">In the early days of digital marketing, SEO was a numbers game. If you stuffed enough keywords into a page and built enough backlinks, you could game ...</p>
+                    <a href="seo-and-brand-voice.html" style="color: var(--primary); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        
+            <article class="blog-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: transform 0.3s ease;">
+                <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <div style="color: var(--accent); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 12px;">SEO & Content</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); line-height: 1.3;">SEO vs Paid Ads vs Content: Where Should Growing Businesses Invest?</h3>
+                    <p style="color: var(--neutral-mid); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1;">If you have an extra $2,000 in your marketing budget this month, where should it go?...</p>
+                    <a href="seo-vs-ads-vs-content.html" style="color: var(--primary); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        
+            <article class="blog-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: transform 0.3s ease;">
+                <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <div style="color: var(--accent); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 12px;">Social Media</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); line-height: 1.3;">Social Media Management Pricing: What $500–$6,000/mo Gets You</h3>
+                    <p style="color: var(--neutral-mid); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1;">Meta Description: How much should you pay for social media management? We compare the value and deliverables across our five service tiers to help you...</p>
+                    <a href="social-media-management-pricing.html" style="color: var(--primary); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        
+            <article class="blog-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: transform 0.3s ease;">
+                <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <div style="color: var(--accent); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 12px;">Solopreneur</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); line-height: 1.3;">Solo Founder? Here's Your $500/mo Marketing Strategy That Actually Works</h3>
+                    <p style="color: var(--neutral-mid); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1;">Being a solo founder is a badge of honor, but it also means you’re the CEO, the product developer, the customer support team, and—all too often—the ex...</p>
+                    <a href="solo-founder-marketing-strategy.html" style="color: var(--primary); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        
+            <article class="blog-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: transform 0.3s ease;">
+                <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <div style="color: var(--accent); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 12px;">Starter Tier</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); line-height: 1.3;">What to Expect from a $500/mo Marketing Retainer</h3>
+                    <p style="color: var(--neutral-mid); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1;">Meta Description: Thinking about the She Leads Marketing Starter Tier? Here is exactly what you get for $500/mo and how it builds a professional found...</p>
+                    <a href="what-to-expect-500-retainer.html" style="color: var(--primary); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        
+    </div>
+
+    
+            </div>
+
+            <div class="blog-cta-box">
+                <h3>Ready to lead the conversation?</h3>
+                <p>Stop juggling freelancers and start growing with a unified marketing team. Our Starter tier starts at just $500/mo.</p>
+                <a href="../index.html#pricing" class="btn btn-accent">View Pricing & Sign Up</a>
+            </div>
+            
+            <div style="margin-top: 40px; text-align: center;">
+                <a href="index.html" class="nav-link" style="color: var(--primary); font-weight: 600;"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+            </div>
+        </div>
+    </article>
+
+    <!-- ===== Footer ===== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="../index.html" class="nav-logo footer-logo">
-                        <span class="logo-she">She</span><span class="logo-leads"> Leads</span><span class="logo-marketing"> Marketing</span>
+                        <span class="logo-she">She</span>
+                        <span class="logo-leads"> Leads</span>
+                        <span class="logo-marketing"> Marketing</span>
                     </a>
+                    <p class="footer-tagline">Lead the Conversation.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
@@ -204,10 +329,17 @@ The answer depends entir...</p>
                         <li><a href="../index.html#services">Services</a></li>
                         <li><a href="../index.html#pricing">Pricing</a></li>
                         <li><a href="index.html">Blog</a></li>
+                        <li><a href="../index.html#about">About</a></li>
                     </ul>
                 </div>
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <p><i class="fas fa-envelope"></i> sheleadsmarketing@agentmail.to</p>
+                </div>
             </div>
-            <div class="footer-bottom"><p>&copy; 2026 She Leads Marketing. All rights reserved.</p></div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 She Leads Marketing. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 </body>

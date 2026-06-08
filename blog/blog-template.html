@@ -20,11 +20,12 @@
     <style>
         .blog-post-header {
             padding: 140px 0 60px;
-            background: var(--neutral-light);
+            background: var(--primary);
+            color: var(--white);
             text-align: center;
         }
         .blog-post-meta {
-            color: var(--gold);
+            color: var(--accent);
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -34,14 +35,15 @@
         .blog-post-title {
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
-            color: var(--primary);
+            color: var(--white);
             max-width: 900px;
             margin: 0 auto 20px;
             line-height: 1.2;
         }
         .blog-post-date {
-            color: var(--text-mid);
+            color: var(--secondary-light);
             font-size: 1rem;
+            opacity: 0.9;
         }
         .blog-post-content {
             padding: 80px 0;
@@ -51,13 +53,15 @@
         .blog-post-body {
             font-size: 1.15rem;
             line-height: 1.8;
-            color: var(--text-dark);
+            color: var(--neutral-dark);
         }
         .blog-post-body h2 {
             font-family: 'Playfair Display', serif;
             color: var(--primary);
             margin: 40px 0 20px;
             font-size: 2rem;
+            border-bottom: 2px solid var(--secondary-light);
+            padding-bottom: 10px;
         }
         .blog-post-body h3 {
             color: var(--primary);
@@ -74,6 +78,9 @@
         .blog-post-body li {
             margin-bottom: 10px;
         }
+        .blog-post-body strong {
+            color: var(--primary-dark);
+        }
         .blog-cta-box {
             background: var(--primary);
             color: white;
@@ -81,9 +88,10 @@
             border-radius: 12px;
             margin-top: 60px;
             text-align: center;
+            border-left: 5px solid var(--accent);
         }
         .blog-cta-box h3 {
-            color: white;
+            color: var(--accent);
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
             margin-bottom: 15px;
@@ -92,10 +100,25 @@
             margin-bottom: 30px;
             opacity: 0.9;
         }
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+        .btn-accent:hover {
+            background-color: var(--accent-hover);
+            color: var(--primary-dark);
+        }
         @media (max-width: 768px) {
             .blog-post-title {
                 font-size: 2.5rem;
             }
+        }
+        
+        /* Navigation consistency */
+        .navbar.active {
+            background: var(--primary);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
     </style>
 </head>
@@ -122,7 +145,7 @@
         <div class="container">
             <span class="blog-post-meta">{{CATEGORY}}</span>
             <h1 class="blog-post-title">{{TITLE}}</h1>
-            <p class="blog-post-date">Published on June 7, 2026</p>
+            <p class="blog-post-date">Published on {{DATE}}</p>
         </div>
     </header>
 
@@ -135,11 +158,11 @@
             <div class="blog-cta-box">
                 <h3>Ready to lead the conversation?</h3>
                 <p>Stop juggling freelancers and start growing with a unified marketing team. Our Starter tier starts at just $500/mo.</p>
-                <a href="../index.html#pricing" class="btn btn-secondary">View Pricing & Sign Up</a>
+                <a href="../index.html#pricing" class="btn btn-accent">View Pricing & Sign Up</a>
             </div>
             
             <div style="margin-top: 40px; text-align: center;">
-                <a href="index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+                <a href="index.html" class="nav-link" style="color: var(--primary); font-weight: 600;"><i class="fas fa-arrow-left"></i> Back to Blog</a>
             </div>
         </div>
     </article>
