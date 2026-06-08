@@ -18,10 +18,12 @@ document.addEventListener('DOMContentLoaded', function() {
         'Email Campaign':   { url: '', name: 'Email Campaign - $125' },
         'Ad Creative Set':  { url: '', name: 'Ad Creative Set - $350' },
         // Digital Templates (Shop)
-        'Social Media Calendar': { url: 'https://buy.stripe.com/6oE3cs3je792fP27sx8EM05', name: 'Social Media Calendar - $47' },
-        'SEO Audit Checklist':   { url: 'https://buy.stripe.com/8wM3cs6vqahe9KD28g8EM06', name: 'SEO Audit Checklist - $27' },
-        'Brand Identity Kit':    { url: 'https://buy.stripe.com/4gw9CSeXW7926yrcMW8EM07', name: 'Brand Identity Kit - $97' },
-        'Email Automations':     { url: 'https://buy.stripe.com/4gw3csf20che6yrcMX8EM08', name: 'Email Automations - $67' }
+        'Marketing Strategy Checklist': { url: 'https://buy.stripe.com/5kQ00k9HC8d64qj7sx', name: 'Strategy Checklist - $10' },
+        'Social Media Calendar':        { url: 'https://buy.stripe.com/28E28of207923mfdR0', name: 'Content Calendar - $15' },
+        'Client Onboarding Kit':       { url: 'https://buy.stripe.com/9BI28o1b69ha9KD4gr', name: 'Onboarding Kit - $25' },
+        'Brand Identity Workbook':      { url: 'https://buy.stripe.com/7sI5kE7zueBu3mf8wE', name: 'Identity Workbook - $20' },
+        'Instagram Post Templates':     { url: 'https://buy.stripe.com/4gw3cs3je7920a328f', name: 'Instagram Templates - $15' },
+        'Full Marketing Bundle':        { url: 'https://buy.stripe.com/5kQ00kg609haeOH3cg', name: 'Marketing Bundle - $75' }
     };
 
     // ===== CALENDLY / BOOKING CONFIGURATION =====
