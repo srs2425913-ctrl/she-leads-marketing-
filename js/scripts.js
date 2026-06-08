@@ -16,7 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
         'Blog Post':        { url: '', name: 'Blog Post - $200' },
         'Social Bundle':    { url: '', name: 'Social Bundle - $450' },
         'Email Campaign':   { url: '', name: 'Email Campaign - $125' },
-        'Ad Creative Set':  { url: '', name: 'Ad Creative Set - $350' }
+        'Ad Creative Set':  { url: '', name: 'Ad Creative Set - $350' },
+        // Digital Templates (Shop)
+        'Social Media Calendar': { url: 'https://buy.stripe.com/6oE3cs3je792fP27sx8EM05', name: 'Social Media Calendar - $47' },
+        'SEO Audit Checklist':   { url: 'https://buy.stripe.com/8wM3cs6vqahe9KD28g8EM06', name: 'SEO Audit Checklist - $27' },
+        'Brand Identity Kit':    { url: 'https://buy.stripe.com/4gw9CSeXW7926yrcMW8EM07', name: 'Brand Identity Kit - $97' },
+        'Email Automations':     { url: 'https://buy.stripe.com/4gw3csf20che6yrcMX8EM08', name: 'Email Automations - $67' }
     };
 
     // ===== CALENDLY / BOOKING CONFIGURATION =====
